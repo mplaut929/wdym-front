@@ -3,10 +3,13 @@ import React from 'react';
 
 export default class Caption extends React.Component {
 
+  handleClick = () => {
+    this.props.handleCaptionClick(this.props.caption)
+  }
+
   render(){
-    console.log(this.props)
     return(
-      <li>{this.props.caption.title}</li>
+      <li onClick={this.handleClick}>{this.props.caption.title}</li>
     )
   }
 

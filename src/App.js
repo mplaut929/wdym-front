@@ -1,13 +1,16 @@
 import React from 'react';
 import CaptionContainer from './CaptionContainer.js';
 import MemeContainer from './MemeContainer.js';
+import ActiveMemeCaption from './ActiveMemeCaption.js'
 import './App.css';
 
 class App extends React.Component {
 
   state = {
     captions: [],
-    memes: []
+    memes: [],
+    activeMeme: null,
+    activeCaption: null
   }
 
   componentDidMount() {
@@ -28,11 +31,24 @@ class App extends React.Component {
     })
   }
 
+  handleMemeClick = (meme) => {
+    this.setState({
+      activeMeme: meme
+    })
+  }
+  handleCaptionClick = (caption) => {
+    this.setState({
+      activeCaption: caption
+    })
+  }
+
   render(){
+    console.log(this.state)
     return (
-    <div>
-      <CaptionContainer captions={this.state.captions}/>
-      <MemeContainer captions={this.state.memes}/>
+    <div className="app">
+      <CaptionContainer captions={this.state.captions} handleCaptionClick={this.handleCaptionClick}/>
+      <MemeContainer memes={this.state.memes} handleMemeClick={this.handleMemeClick}/>
+      <ActiveMemeCaption caption={this.state.activeCaption} meme={this.state.activeMeme}/>
     </div>
     )
   }

@@ -8,7 +8,7 @@ export default class CaptionContainer extends React.Component {
       <div>
         <ul>
           {this.props.captions.map((caption) => {
-            return <Caption key={caption.id} caption={caption}/> 
+            return <Caption key={caption.id} caption={caption} handleCaptionClick={this.props.handleCaptionClick}/>
           })}
         </ul>
       </div>
