@@ -6,9 +6,9 @@ export default class MemeContainer extends React.Component {
   render(){
     return (
       <div>
-        <ul>
+        <ul className="meme-grid">
           {this.props.memes.map((meme) => {
-            return <Meme key={meme.id} meme={meme}/> 
+            return <Meme key={meme.id} meme={meme} handleMemeClick={this.props.handleMemeClick}/>
           })}
         </ul>
       </div>
