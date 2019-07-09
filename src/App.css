@@ -1,10 +1,13 @@
-/* .app {
+.app {
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 50% 50%;
+  grid-template-areas: "captions play memes"
+                        "captions hand memes";
 }
 
 .meme-grid {
+  grid-area: memes;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: auto
@@ -18,4 +21,12 @@ ul {
   margin: 10px;
   height: auto;
   width: 100%;
-} */
+}
+
+.play {
+  grid-area: play;
+}
+
+.hand {
+  grid-area: hand;
+}
