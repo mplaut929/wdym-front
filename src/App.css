@@ -1,16 +1,16 @@
 .app {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 50% 50%;
   grid-template-areas: "captions play memes"
                         "captions hand memes";
+  grid-gap: 10px;
 }
 
 .meme-grid {
-  grid-area: memes;
   display: grid;
   grid-template-columns: 50% 50%;
-  grid-template-rows: auto
+  grid-template-rows: auto;
 }
 
 ul {
@@ -29,4 +29,18 @@ ul {
 
 .hand {
   grid-area: hand;
+}
+
+.captions {
+  grid-area: captions;
+}
+
+.memes {
+  grid-area: memes;
+}
+
+.activeMeme {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
 }
