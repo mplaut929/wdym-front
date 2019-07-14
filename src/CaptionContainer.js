@@ -3,15 +3,26 @@ import React from 'react';
 
 export default class CaptionContainer extends React.Component {
 
+  state = {
+    clicks: 0
+  }
+
+
+
 
   handleClick = () => {
-    this.props.handleCaptionClick(this.props.captions[Math.floor(Math.random()*this.props.captions.length)])
+    this.props.handleCaptionClick(this.props.captions[Math.floor(Math.random()*this.props.captions.length)]);
+    this.setState(prevState => ({
+      clicks: prevState.clicks + 1
+    }));
   }
 
   render(){
     return (
       <div className="captions">
-        <button onClick={this.handleClick}>Caption</button>
+        {this.state.clicks < 5 ?
+          <button onClick={this.handleClick}>Caption</button> :
+          <button disabled>Caption</button>}
       </div>
       // <div>
       //   <ul>
