@@ -12,7 +12,8 @@ class App extends React.Component {
     memes: [],
     activeMeme: null,
     activeCaptions: [],
-    activeCaption: null
+    activeCaption: null,
+    clicks: 0
   }
 
   componentDidMount() {
@@ -49,16 +50,31 @@ class App extends React.Component {
     this.setState({
       activeCaption: caption
     })
+    const array = [...this.state.activeCaptions]
+    const index = array.indexOf(caption)
+    if (index !== -1) {
+      array.splice(index, 1);
+      this.setState(prevState => ({
+        activeCaptions: array,
+      clicks: prevState.clicks - 1}));
+    }
+  }
+  handleClickCounter = () => {
+    this.setState(prevState => ({
+      clicks: prevState.clicks + 1
+    }));
   }
 
   render(){
     console.log(this.state)
     return (
-    <div className="app">
-      <CaptionContainer captions={this.state.captions} handleCaptionClick={this.handleCaptionClick}/>
-      <MemeContainer memes={this.state.memes} handleMemeClick={this.handleMemeClick}/>
-      <ActiveMemeCaption caption={this.state.activeCaption} meme={this.state.activeMeme}/>
-      <Hand captions={this.state.activeCaptions} handleCaptionClick={this.handleActiveCaptionClick}/>
+    <div>
+      <div className="app">
+        <CaptionContainer captions={this.state.captions} handleCaptionClick={this.handleCaptionClick} handleClickCounter={this.handleClickCounter} clicks={this.state.clicks}/>
+        <MemeContainer memes={this.state.memes} handleMemeClick={this.handleMemeClick}/>
+        <ActiveMemeCaption caption={this.state.activeCaption} meme={this.state.activeMeme}/>
+        <Hand captions={this.state.activeCaptions} handleCaptionClick={this.handleActiveCaptionClick}/>
+      </div>
     </div>
     )
   }
