@@ -1,4 +1,5 @@
 import React from 'react';
+import { Switch, Route, withRouter} from 'react-router-dom'
 import CaptionContainer from './CaptionContainer.js';
 import MemeContainer from './MemeContainer.js';
 import ActiveMemeCaption from './ActiveMemeCaption.js'
@@ -69,16 +70,21 @@ class App extends React.Component {
     console.log(this.state)
     return (
     <div>
-      <div className="app">
-        <CaptionContainer captions={this.state.captions} handleCaptionClick={this.handleCaptionClick} handleClickCounter={this.handleClickCounter} clicks={this.state.clicks}/>
-        <MemeContainer memes={this.state.memes} handleMemeClick={this.handleMemeClick}/>
-        <ActiveMemeCaption caption={this.state.activeCaption} meme={this.state.activeMeme}/>
-        <Hand captions={this.state.activeCaptions} handleCaptionClick={this.handleActiveCaptionClick}/>
-      </div>
+        <Switch>
+          <Route exact path="/" render={(routeProps) => {
+          return (<div className="app">
+                    <CaptionContainer captions={this.state.captions} handleCaptionClick={this.handleCaptionClick} handleClickCounter={this.handleClickCounter} clicks={this.state.clicks}/>
+                    <MemeContainer memes={this.state.memes} handleMemeClick={this.handleMemeClick}/>
+                    <ActiveMemeCaption caption={this.state.activeCaption} meme={this.state.activeMeme}/>
+                    <Hand captions={this.state.activeCaptions} handleCaptionClick={this.handleActiveCaptionClick}/>
+                  </div>
+
+          )}} />
+        </Switch>
     </div>
     )
   }
 
 }
 
-export default App;
+export default (withRouter(App));
