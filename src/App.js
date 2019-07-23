@@ -4,6 +4,7 @@ import CaptionContainer from './CaptionContainer.js';
 import MemeContainer from './MemeContainer.js';
 import ActiveMemeCaption from './ActiveMemeCaption.js'
 import Hand from './Hand.js'
+import SavedMemes from './SavedMemes.js'
 import './App.css';
 
 class App extends React.Component {
@@ -80,6 +81,9 @@ class App extends React.Component {
                   </div>
 
           )}} />
+        <Route exact path="/memes" render={(routeProps) => {
+            return <SavedMemes {...routeProps}/>
+          }} />
         </Switch>
     </div>
     )
