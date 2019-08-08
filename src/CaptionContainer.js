@@ -16,8 +16,8 @@ export default class CaptionContainer extends React.Component {
     return (
       <div className="captions">
         {this.props.clicks < 5 ?
-          <button onClick={this.handleClick}>Caption</button> :
-          <button disabled>Caption</button>}
+          <button onClick={this.handleClick}>Get Caption!</button> :
+          <button disabled> Hand is full!</button>}
       </div>
       // <div>
       //   <ul>
