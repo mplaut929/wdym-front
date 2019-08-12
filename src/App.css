@@ -29,6 +29,7 @@ button {
 
 button:hover {
   background-color: white;
+  transform: rotate(45deg);
 }
 
 .meme img {
