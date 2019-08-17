@@ -1,3 +1,4 @@
+
 .app {
   display: grid;
   justify-items: center;
@@ -7,6 +8,7 @@
   grid-template-areas: "captions play memes"
                         "captions hand memes";
   grid-gap: 10px;
+
 }
 
 .meme-grid {

@@ -16,6 +16,7 @@ export default class ActiveMemeCaption extends React.Component {
         caption_id: this.props.caption.id
       })
     })
+    alert("Meme saved successfully!")
   }
 
 
