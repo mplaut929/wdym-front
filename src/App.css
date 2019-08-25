@@ -8,6 +8,7 @@
   grid-template-areas: "captions play memes"
                         "captions hand memes";
   grid-gap: 5px;
+  background-color: aqua;
 
 }
 
