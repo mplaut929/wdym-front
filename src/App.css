@@ -7,7 +7,7 @@
   grid-template-rows: 50% 50%;
   grid-template-areas: "captions play memes"
                         "captions hand memes";
-  grid-gap: 10px;
+  grid-gap: 5px;
 
 }
 
